@@ -6,6 +6,14 @@ const nextConfig = {
       { protocol: "http", hostname: "78.46.234.213", port: "1337" },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/strapi/:path*',
+        destination: 'http://78.46.234.213:1337/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
